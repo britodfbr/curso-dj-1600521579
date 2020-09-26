@@ -13,4 +13,5 @@
         <p>{{object.published}}</p>
     </div>
     <a href="{{ object.get_absolute_url_update }}">Editar postagem</a>
+    <a href="{% url 'post_delete' object.pk %}">Deletar postagem</a>
 {% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title%} HOME - Deletar Postagem {% endblock title%}
+{% block content %}
+<h1>Deletar postagem</h1>
+<form method="post">
+    {%csrf_token%}
+    <b>Deseja realmente excluir permanentemente esta postagem <u>{{ post.title }}?</u></b>
+    <br />
+    <input type="submit" value="Confirmar">
+</form>
+{% endblock content %}
