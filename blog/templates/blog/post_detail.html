@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block title%} HOME - Detalhes {% endblock title%}
 {% block content %}
+    <!--
     <div class="post-entry">
         <h2>{{custom.title}}</h2>
         <p>{{custom.content}}</p>
         <p>{{custom.published}}</p>
+    </div> -->
+    <div class="post-entry">
+        <h2>{{object.title}}</h2>
+        <p>{{object.content}}</p>
+        <p>{{object.published}}</p>
     </div>
 {% endblock content %}
