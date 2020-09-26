@@ -12,5 +12,5 @@
         <p>{{object.content}}</p>
         <p>{{object.published}}</p>
     </div>
-    <a href="{% url 'post_edit' post.slug %}">Editar postagem</a>
+    <a href="{% url 'post_edit' post.pk %}">Editar postagem</a>
 {% endblock content %}
