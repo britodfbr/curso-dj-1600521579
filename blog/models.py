@@ -1,9 +1,12 @@
 from django.db import models
 
 # Create your models here.
+from django.dispatch import receiver
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.text import slugify
+from django.db.models.signals import pre_save, post_save
 
 
 class PublishedManager(models.Manager):
@@ -37,3 +40,10 @@ class Post(models.Model):
 
     def get_absolute_url_update(self):
         return reverse('post_edit', args=[self.slug])
+
+
+@receiver(post_save, sender=Post)
+def insert_slug(sender, instance, **kwargs):
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+        return instance.save()
