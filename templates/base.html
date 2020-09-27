@@ -14,9 +14,18 @@
         <h1><a href="/">Blog - Home</a> </h1>
     </div>
     <div class="nav-right">
-        <h1><a href="{% url 'post_new' %}" >+ Nova postagem</a></h1>
+        <h3><a href="{% url 'post_new' %}" >+ Nova postagem</a></h3>
     </div>
 </header>
+<div>
+    {% if user.is_authenticated %}
+    <p>Olá {{user.username}}</p>
+    {% else %}
+    <p>Você não esta logado.
+    <a href="{% url 'login' %}"> Login </a>
+    </p>
+    {% endif %}
+</div>
 <div class="container">
     {% block content %}
     {% endblock content %}
