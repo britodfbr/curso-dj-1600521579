@@ -125,3 +125,5 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     'statics'
 ]
+
+LOGIN_REDIRECT_URL = 'home'
