@@ -1,7 +1,15 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post
+from .models import Post, Category
+
+
+@admin.register(Category)
+class PostAdmin(admin.ModelAdmin):
+    list_display = 'name', 'published', 'created',
+    list_filter = 'name', 'published', 'created',
+    date_hierarchy = 'published'
+    search_fields = 'name',
 
 
 @admin.register(Post)

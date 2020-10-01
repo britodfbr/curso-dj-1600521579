@@ -14,15 +14,31 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    published = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+        ordering = '-created',
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     STATUS = (
         ('draft', 'Draft'),
         ('published', 'Published')
     )
-    title = models.CharField(max_length=250)
+    title = models.CharField(verbose_name="Título", max_length=250)
     slug = models.SlugField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
+    category = models.ManyToManyField(Category, related_name="get_posts")
+    image = models.ImageField(upload_to='blog', blank=True, null=True)
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     changed = models.DateTimeField(auto_now=True)
