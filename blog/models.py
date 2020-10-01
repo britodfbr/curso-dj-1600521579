@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
+from ckeditor.fields import RichTextField
 
 
 class PublishedManager(models.Manager):
@@ -36,9 +37,9 @@ class Post(models.Model):
     title = models.CharField(verbose_name="Título", max_length=250)
     slug = models.SlugField(max_length=250)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
     category = models.ManyToManyField(Category, related_name="get_posts")
     image = models.ImageField(upload_to='blog', blank=True, null=True)
+    content = RichTextField(verbose_name="Conteúdo ")
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     changed = models.DateTimeField(auto_now=True)

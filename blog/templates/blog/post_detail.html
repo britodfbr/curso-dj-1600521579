@@ -16,7 +16,7 @@
     </div> -->
     <div class="post-entry">
         <h2>{{object.title}}</h2>
-        <p>{{object.content}}</p>
+        <p>{{object.content|safe}}</p>
         <p>{{object.published}}</p>
     </div>
     <a href="{{ object.get_absolute_url_update }}">Editar postagem</a>
