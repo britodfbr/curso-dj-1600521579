@@ -17,9 +17,14 @@ class PostAdmin(admin.ModelAdmin):
     list_display = 'title', 'slug', 'author', 'published', 'created', 'changed', 'status',
     list_filter = 'slug', 'author', 'published', 'created', 'changed', 'status',
     search_fields = 'title', 'content',
+    readonly_fields = 'view_image_panel',
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'published'
     raw_id_fields = 'author',
+
+    def view_image_panel(self, obj):
+        return obj.view_image
+    view_image_panel.short_description = "Imagem anexada"
 
 
 if __name__ == '__main__':

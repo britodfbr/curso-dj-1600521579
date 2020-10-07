@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 from ckeditor.fields import RichTextField
+from django.utils.html import mark_safe
 
 
 class PublishedManager(models.Manager):
@@ -57,6 +58,11 @@ class Post(models.Model):
 
     def get_absolute_url_update(self):
         return reverse('post_edit', args=[self.slug])
+
+    @property
+    def view_image(self):
+        return mark_safe(f'<img src={self.image.url} width="60%" />')
+        view_image.allow_tags = True
 
 
 @receiver(post_save, sender=Post)
