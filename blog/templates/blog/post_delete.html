@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block title%} HOME - Deletar Postagem {% endblock title%}
 {% block content %}
-<h1>Deletar postagem</h1>
-<form method="post">
-    {%csrf_token%}
-    <b>Deseja realmente excluir permanentemente esta postagem <u>{{ post.title }}?</u></b>
-    <br />
-    <input type="submit" value="Confirmar">
-</form>
+<div class="container justify-content-center">
+    <div class="card">
+        <div class="card-header">
+            <h1>Deletar postagem</h1>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="card-body">
+            <form method="post">
+                {%csrf_token%}
+                <b>Deseja realmente excluir permanentemente esta postagem <u>{{ post.title }}?</u></b>
+                <br />
+                <input type="submit" value="Confirmar" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}

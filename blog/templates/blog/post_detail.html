@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title%} HOME - Detalhes {% endblock title%}
 {% block content %}
+<div class="container justify-content-center">
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -8,17 +9,18 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <!--
-    <div class="post-entry">
-        <h2>{{custom.title}}</h2>
-        <p>{{custom.content}}</p>
-        <p>{{custom.published}}</p>
-    </div> -->
-    <div class="post-entry">
-        <h2>{{object.title}}</h2>
-        <p>{{object.content|safe}}</p>
-        <p>{{object.published}}</p>
+    <div class="card">
+        <div class="card-header">
+            <h2>{{object.title}}</h2>
+        </div>
+        <div class="card-body">
+            <div class="post-entry">
+                <p>{{ object.content|safe }}</p>
+                <p>{{ object.published }}</p>
+            </div>
+            <a href="{{ object.get_absolute_url_update }}" class="btn btn-primary">Editar postagem</a>
+            <a href="{% url 'post_delete' object.pk %}" class="btn btn-danger">Deletar postagem</a>
+        </div>
     </div>
-    <a href="{{ object.get_absolute_url_update }}">Editar postagem</a>
-    <a href="{% url 'post_delete' object.pk %}">Deletar postagem</a>
+</div>
 {% endblock content %}
