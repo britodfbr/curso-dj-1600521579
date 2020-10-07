@@ -62,5 +62,5 @@ class Post(models.Model):
 @receiver(post_save, sender=Post)
 def insert_slug(sender, instance, **kwargs):
     if not instance.slug:
-        instance.slug = slugify(instance.title)
+        instance.slug = slugify("{obj.title}-{obj.id}".format(obj=instance))
         return instance.save()
