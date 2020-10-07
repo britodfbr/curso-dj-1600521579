@@ -8,7 +8,6 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import pre_save, post_save
 from ckeditor.fields import RichTextField
-from autoslug import AutoSlugField
 
 
 class PublishedManager(models.Manager):
@@ -63,5 +62,5 @@ class Post(models.Model):
 @receiver(post_save, sender=Post)
 def insert_slug(sender, instance, **kwargs):
     if not instance.slug:
-        instance.slug = AutoSlugField(populate_from='instance.title', unique=True)
+        instance.slug = slugify("{obj.title}-{obj.id}".format(obj=instance))
         return instance.save()
