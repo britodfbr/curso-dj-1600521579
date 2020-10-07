@@ -46,10 +46,7 @@
                     <a class="nav-link" href="{% url 'post_new' %}" >+ Nova postagem</a>
                 </li>
                 <li class="nav-item">
-                    Olá {{user.username}}
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Olá {{user.username}} | Logout</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
