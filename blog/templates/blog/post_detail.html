@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title%} HOME - Detalhes {% endblock title%}
+{% block header %}
+{% if object.image %}
+<header class="masthead" style="background-image: url({{ object.image.url }})">
+{% else %}
+<header class="masthead" style="background-image: url({% static 'img/post-sample-image.jpg' %})">
+{% endif %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{ object.title }}</h1>
+                    <span class="subheading">por {{ object.author }} em {{ object.published }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
 {% block content %}
 <div class="container justify-content-center">
     {% if messages %}
@@ -10,9 +30,11 @@
     </ul>
     {% endif %}
     <div class="card">
+        <!--
         <div class="card-header">
             <h2>{{object.title}}</h2>
         </div>
+        -->
         <div class="card-body">
             <div class="post-entry">
                 <p>{{ object.content|safe }}</p>
