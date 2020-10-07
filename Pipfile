@@ -10,6 +10,7 @@ django = "*"
 django-bootstrap-form = "*"
 pillow = "*"
 django-ckeditor = "*"
+django-autoslug = "*"
 
 [requires]
 python_version = "3.8"
