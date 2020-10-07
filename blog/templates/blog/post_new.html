@@ -8,7 +8,7 @@
             <h1>Nova postagem</h1>
         </div>
         <div class="card-body">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {%csrf_token%}
                 {{form|bootstrap}}
                 <input class="btn btn-primary" type="submit" value="Salvar">
