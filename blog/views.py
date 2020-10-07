@@ -4,6 +4,7 @@ from django.views.generic import (ListView, DetailView, UpdateView, DeleteView)
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import Post
+from .forms import PostForm
 
 
 # Create your views here.
@@ -36,8 +37,9 @@ class BlogCreateView(SuccessMessageMixin, CreateView):
 
 class BlogUpdateView(SuccessMessageMixin, UpdateView):
     model = Post
+    form_class = PostForm
     template_name = 'blog/post_edit.html'
-    fields = 'author', 'title', 'content',
+    # fields = 'author', 'title', 'content',
     success_message = '%(field)s: Alterado com Sucesso!'
 
     def get_success_message(self, cleaned_data):
