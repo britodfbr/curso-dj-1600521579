@@ -18,6 +18,7 @@
                 {%csrf_token%}
                 <b>Deseja realmente excluir permanentemente esta postagem <u>{{ post.title }}?</u></b>
                 <br />
+                <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
                 <input type="submit" value="Confirmar" class="btn btn-danger">
             </form>
         </div>

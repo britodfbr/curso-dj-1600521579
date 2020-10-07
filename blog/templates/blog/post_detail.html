@@ -18,6 +18,7 @@
                 <p>{{ object.content|safe }}</p>
                 <p>{{ object.published }}</p>
             </div>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
             <a href="{{ object.get_absolute_url_update }}" class="btn btn-primary">Editar postagem</a>
             <a href="{% url 'post_delete' object.pk %}" class="btn btn-danger">Deletar postagem</a>
         </div>
