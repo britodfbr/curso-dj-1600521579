@@ -5,9 +5,15 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
-
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
+@login_required
+def hello(request):
+    return HttpResponse('Olá Mundo!')
 
 
 class BlogListView(ListView):
