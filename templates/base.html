@@ -40,6 +40,9 @@
                     <a class="nav-link" href="{% url 'post_new' %}" >+ Nova postagem</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/admin"> panel </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Olá {{user.username}} | Logout</a>
                 </li>
                 {% else %}
@@ -64,30 +67,46 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <ul class="list-inline text-center">
+                    {% if TWITTER %}
                     <li class="list-inline-item">
-                        <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
+                        <a href="{{ TWITTER }}" target="social">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
                         </a>
                     </li>
+                    {% endif %}
+                    {% if FACEBOOK %}
                     <li class="list-inline-item">
-                        <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                </span>
+                        <a href="{{ FACEBOOK }}" target="social">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                            </span>
                         </a>
                     </li>
+                    {% endif %}
+                    {% if GITHUB %}
                     <li class="list-inline-item">
-                        <a href="#">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
+                        <a href="{{ GITHUB }}" target="social">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
                         </a>
                     </li>
+                    {% endif %}
+                    {% if INSTAGRAM %}
+                    <li class="list-inline-item">
+                        <a href="{{ INSTAGRAM }}" target="social">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <p class="copyright text-muted">Copyright &copy; incolume.com.br 2020</p>
             </div>
