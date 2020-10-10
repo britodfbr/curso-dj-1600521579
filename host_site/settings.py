@@ -140,4 +140,4 @@ EMAIL_HOST_USER = '5ef8b22c0391fc'
 EMAIL_HOST_PASSWORD = 'a12d61ea836bbf'
 EMAIL_PORT = '2525'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
