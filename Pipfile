@@ -11,6 +11,7 @@ django = "*"
 django-bootstrap-form = "*"
 pillow = "*"
 django-ckeditor = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
