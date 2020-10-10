@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'accounts',
     'social',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,10 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '5ef8b22c0391fc'
+EMAIL_HOST_PASSWORD = 'a12d61ea836bbf'
+EMAIL_PORT = '2525'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
