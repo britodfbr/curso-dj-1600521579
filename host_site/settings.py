@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*, ]
 
 # Application definition
 
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'host_site.wsgi.application'
 #     }
 # }
 
-# Configuração baseada no .env;
+# Configuração DATABASE baseada no .env;
 default_dburl = f"sqlite:////{BASE_DIR / 'db.sqlite3'}"
 DATABASES = {'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
