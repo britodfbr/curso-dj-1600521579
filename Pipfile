@@ -4,12 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-python-decouple = "*"
 
 [packages]
 django = "*"
 django-bootstrap-form = "*"
 pillow = "*"
+python-decouple = "*"
 django-ckeditor = "*"
 dj-database-url = "*"
 dj-static = "*"
